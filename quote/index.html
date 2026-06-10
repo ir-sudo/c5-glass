@@ -3,13 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fast Quote Tool — Live Demo | C5</title>
-  <meta name="description" content="See the C5 quote tool in action: a fast ballpark for simple glass jobs, a smart intake for custom ones — every request lands as a qualified lead." />
+  <title>Fast Quote Tool — Live Demo</title>
+  <meta name="description" content="See the instant quote tool in action: a fast ballpark for simple glass jobs, a smart intake for custom ones — every request lands as a qualified lead." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --bg: #131a25; --surface: #192434; --elevated: #1d2431; --elevated-hover: #243044;
+      --line: rgba(255,255,255,0.12); --line-strong: rgba(255,255,255,0.24);
+      --text: #ffffff; --text-emph: #ffffff; --text-soft: rgba(255,255,255,0.80);
+      --text-mute: rgba(255,255,255,0.60); --text-primary: #79c0dc;
+      --primary: #79c0dc; --primary-hover: #93cee4; --on-primary: #0c1622;
+      --ff-body: "Inter", system-ui, sans-serif; --ff-display: "Cormorant Garamond", Georgia, serif;
+      --radius: 14px; --radius-sm: 10px; --radius-lg: 18px;
+      --shadow: 0 30px 60px -30px rgba(0,0,0,0.6);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text-soft); font-family: var(--ff-body); -webkit-font-smoothing: antialiased; }
+    .eyebrow { display: inline-block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-primary); }
+    .btn { display: inline-block; border: 0; cursor: pointer; font-family: var(--ff-body); font-weight: 600; font-size: 0.98rem; padding: 13px 22px; border-radius: var(--radius-sm); text-decoration: none; transition: background 0.16s, transform 0.16s; }
+    .btn--primary { background: var(--primary); color: var(--on-primary); }
+    .btn--primary:hover { background: var(--primary-hover); }
+    .btn--block { display: block; width: 100%; }
+    .btn--lg { padding: 15px 26px; font-size: 1.05rem; }
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-size: 0.82rem; color: var(--text-soft); margin-bottom: 6px; font-weight: 500; }
+    .field input { width: 100%; padding: 13px 15px; background: var(--elevated); border: 1px solid var(--line-strong); border-radius: var(--radius-sm); color: var(--text); font-size: 1rem; font-family: var(--ff-body); }
+    .field input:focus, .qt select:focus, .qt textarea:focus { outline: none; border-color: var(--primary); }
     .demo-banner {
       background: var(--primary);
       color: var(--on-primary);
@@ -95,7 +116,7 @@
     /* estimate result */
     .qt__estimate {
       text-align: center;
-      background: radial-gradient(90% 130% at 50% 0%, rgba(82,102,235,0.16), transparent 60%), var(--elevated);
+      background: radial-gradient(90% 130% at 50% 0%, rgba(121,192,220,0.16), transparent 60%), var(--elevated);
       border: 1px solid var(--line-strong);
       border-radius: var(--radius);
       padding: 26px 20px;
@@ -125,8 +146,7 @@
 </head>
 <body>
   <div class="demo-banner">
-    👀 Live demo by C5 — this is the quote tool your customers would use.
-    <a href="index.html">Back to C5 →</a>
+    👀 Live demo — this is the quote tool your customers would use.
   </div>
 
   <main class="demo-wrap">
@@ -145,7 +165,7 @@
         <div class="qt__jobs" id="jobs"></div>
         <div class="qt__legend">
           <span><i style="background:#34c759"></i> Fast ballpark</span>
-          <span><i style="background:#9cb4e8"></i> Custom — quick intake</span>
+          <span><i style="background:#79c0dc"></i> Custom — quick intake</span>
         </div>
       </div>
 
@@ -218,7 +238,6 @@
       Every request — fast or custom — lands on your phone <strong>already qualified</strong>.
       Fewer back-and-forth calls, more time on the big jobs.
     </p>
-    <a href="index.html#mockup" class="btn btn--primary btn--lg" style="margin-top:28px">Start my free trial</a>
   </main>
 
   <script>

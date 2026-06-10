@@ -3,13 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Missed-Call Text-Back — Live Demo | C5</title>
-  <meta name="description" content="See what happens 10 seconds after a missed call: C5 texts your customer back automatically so they never call your competition." />
+  <title>Missed-Call Text-Back — Live Demo</title>
+  <meta name="description" content="See what happens 10 seconds after a missed call: your customer gets an instant text back so they never call your competition." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=20" />
   <style>
+    :root {
+      --bg: #131a25;
+      --primary: #79c0dc;
+      --on-primary: #0c1622;
+      --text-emph: #ffffff;
+      --text-soft: rgba(255, 255, 255, 0.80);
+      --text-mute: rgba(255, 255, 255, 0.60);
+      --text-primary: #79c0dc;
+      --ff-body: "Inter", system-ui, sans-serif;
+      --ff-display: "Cormorant Garamond", Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text-soft); font-family: var(--ff-body); -webkit-font-smoothing: antialiased; }
+    .eyebrow { display: inline-block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-primary); }
     /* ===== page ===== */
     .demo-banner {
       background: var(--primary);
@@ -172,8 +185,7 @@
 </head>
 <body>
   <div class="demo-banner">
-    👀 Live demo by C5 — this is what your customer sees seconds after a missed call.
-    <a href="/">Back to C5 →</a>
+    👀 Live demo — this is what your customer sees seconds after a missed call.
   </div>
 
   <main class="demo-wrap">
@@ -181,7 +193,7 @@
     <h1>What happens 10 seconds after a missed call</h1>
     <p class="lede">
       You're on a job and the phone rings out. Instead of losing the customer to whoever picks up next,
-      C5 texts them back automatically — and the conversation starts without you.
+      they get a text back automatically — and the conversation starts without you.
     </p>
 
     <div class="phone" aria-hidden="true">
@@ -200,7 +212,6 @@
       Runs on your <strong>existing number</strong>. No app, no new line, nothing for you to manage —
       the lead just lands in your pocket, already talking.
     </p>
-    <a href="/#mockup" class="btn btn--primary btn--lg demo-cta">Catch my missed calls</a>
   </main>
 
   <script>
