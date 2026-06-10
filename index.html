@@ -693,6 +693,36 @@
       window.addEventListener("load", fit);
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
     })();
+
+    /* Pain chips: on mobile, pick the largest uniform font where the widest
+       chip still fits on one line — guarantees no chip bleeds past the card. */
+    (function () {
+      var list = document.querySelector(".empathy__pains");
+      if (!list) return;
+      var chips = list.querySelectorAll("li");
+      if (!chips.length) return;
+      function clear() { for (var i = 0; i < chips.length; i++) chips[i].style.fontSize = ""; }
+      function fitChips() {
+        clear();
+        if (window.innerWidth > 560) return;
+        var avail = list.clientWidth; /* flex container width = card inner width, stable */
+        if (avail <= 0) return;
+        var probe = 100, widest = 0, i;
+        for (i = 0; i < chips.length; i++) chips[i].style.fontSize = probe + "px";
+        for (i = 0; i < chips.length; i++) {
+          if (chips[i].scrollWidth > widest) widest = chips[i].scrollWidth;
+        }
+        clear();
+        if (!widest) return;
+        var size = probe * (avail / widest) * 0.97; /* 3% safety margin */
+        size = Math.max(12, Math.min(size, 16));
+        for (i = 0; i < chips.length; i++) chips[i].style.fontSize = size + "px";
+      }
+      fitChips();
+      window.addEventListener("resize", fitChips);
+      window.addEventListener("load", fitChips);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitChips);
+    })();
   </script>
 </body>
 </html>

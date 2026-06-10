@@ -831,9 +831,17 @@ button { font: inherit; cursor: pointer; }
   .btn { white-space: normal; }
 }
 @media (max-width: 560px) {
-  /* pain chips: keep each on a single line */
-  .empathy__pains { gap: 12px; }
-  .empathy__pains li { font-size: 0.9rem; white-space: nowrap; padding: 12px 20px; }
+  /* tighter card padding so chips get more room */
+  .empathy__card { padding: 26px 16px; }
+  /* pain chips: stacked, centered, each on a single line (font auto-fit in JS) */
+  .empathy__pains { flex-direction: column; align-items: center; gap: 10px; }
+  .empathy__pains li {
+    font-size: 0.8rem;
+    white-space: nowrap;
+    padding: 11px 18px;
+    text-align: center;
+    max-width: 100%;
+  }
 }
 @media (max-width: 600px) {
   /* quote widget: each service on one line + more compact */
