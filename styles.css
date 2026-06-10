@@ -804,7 +804,9 @@ button { font: inherit; cursor: pointer; }
 }
 @media (max-width: 560px) {
   .grid--4 { grid-template-columns: 1fr; }
-  .hero__stats { grid-template-columns: 1fr; gap: 24px; text-align: left; }
+  .hero__stats { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+  .hero__stats .stat__num { font-size: 3rem; }
+  .hero__stats .stat__label { font-size: 1.05rem; margin-top: 12px; }
   .empathy__callout { grid-template-columns: 1fr; }
   .empathy__stat { padding: 22px 0; border-top: 1px solid var(--line); }
   .empathy__stat:first-child { border-top: 0; }
@@ -816,7 +818,7 @@ button { font: inherit; cursor: pointer; }
 /* ===================== MOBILE TUNING ===================== */
 @media (max-width: 900px) {
   /* hero headline: force two lines (one sentence each) */
-  .hero__title { font-size: clamp(0.8rem, 3.6vw, 1.7rem); }
+  .hero__title { font-size: clamp(0.9rem, 4.2vw, 1.9rem); line-height: 1.2; letter-spacing: -0.025em; }
   .hero__title .hero__line { white-space: nowrap; }
   /* equal-width, stacked CTAs */
   .hero__cta { flex-direction: column; align-items: stretch; }
@@ -828,7 +830,8 @@ button { font: inherit; cursor: pointer; }
 }
 @media (max-width: 560px) {
   /* pain chips: keep each on a single line */
-  .empathy__pains li { font-size: 0.74rem; white-space: nowrap; padding: 7px 12px; }
+  .empathy__pains { gap: 12px; }
+  .empathy__pains li { font-size: 0.9rem; white-space: nowrap; padding: 12px 20px; }
 }
 @media (max-width: 600px) {
   /* quote widget: each service on one line + more compact */
