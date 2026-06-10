@@ -58,7 +58,7 @@ img { max-width: 100%; display: block; }
 .wc-header { position: sticky; top: 0; z-index: 50; background: var(--wc-bg); border-bottom: 1px solid var(--wc-line); transition: box-shadow .2s ease; }
 .wc-header.is-stuck { box-shadow: 0 2px 14px rgba(54,48,44,.08); }
 .wc-header__inner { display: flex; align-items: center; gap: 1.5rem; height: 76px; }
-.wc-brand { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; text-transform: uppercase; display: inline-flex; align-items: center; }
+.wc-brand { font-family: "Inter", system-ui, sans-serif; font-weight: 500; font-size: 1.05rem; letter-spacing: 0.15em; text-transform: uppercase; display: inline-flex; align-items: center; }
 .wc-logo { height: 40px; width: auto; display: block; }
 .wc-logo--footer { height: 40px; }
 .wc-nav { display: flex; gap: 1.5rem; margin-left: auto; }
@@ -307,7 +307,7 @@ a.wc-svc:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(54,48
 .wc-footer h4 { color: #fff; font-size: 1rem; }
 .wc-footer a { color: rgba(255,255,255,.8); }
 .wc-footer a:hover { color: var(--wc-accent); }
-.wc-brand--footer { font-weight: 800; font-size: 1.2rem; text-transform: uppercase; color: #fff; margin-bottom: .6rem; }
+.wc-brand--footer { font-family: "Inter", system-ui, sans-serif; font-weight: 500; font-size: 1.05rem; letter-spacing: 0.15em; text-transform: uppercase; color: #fff; margin-bottom: .6rem; }
 .wc-footer__bottom { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.15); font-size: .85rem; }
 
 /* responsive */
