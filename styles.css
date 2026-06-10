@@ -490,6 +490,10 @@ button { font: inherit; cursor: pointer; }
 .offer__amount { font-family: var(--ff-display); font-weight: 500; font-size: clamp(1.7rem, 3.4vw, 2.2rem); color: var(--text-emph); }
 .offer__unit { color: var(--text-mute); font-size: 0.95rem; }
 .offer__plus { display: block; color: var(--text-primary); font-weight: 600; font-size: 1rem; margin-top: 4px; }
+.offer__options { display: grid; gap: 12px; margin: 6px 0 4px; }
+.offer__opt { background: var(--elevated); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px 16px; }
+.offer__opt-name { display: block; font-weight: 600; color: var(--text-emph); font-size: 1rem; }
+.offer__opt-price { display: block; color: var(--text-primary); font-weight: 600; font-size: 0.9rem; margin-top: 3px; }
 .offer__features { margin: 24px auto 28px; display: flex; flex-direction: column; gap: 12px; text-align: left; max-width: 480px; }
 .offer__features li { position: relative; padding-left: 28px; color: var(--text-soft); font-size: 0.97rem; }
 .offer__features li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--text-primary); font-weight: 700; }
