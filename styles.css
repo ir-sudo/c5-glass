@@ -808,9 +808,11 @@ button { font: inherit; cursor: pointer; }
   .hero__stats .stat__num { font-size: 3rem; }
   .hero__stats .stat__label { font-size: 1.05rem; margin-top: 12px; }
   .empathy__callout { grid-template-columns: 1fr; }
-  .empathy__stat { padding: 22px 0; border-top: 1px solid var(--line); }
+  .empathy__stat { padding: 22px 0; border-top: 1px solid var(--line); text-align: center; }
   .empathy__stat:first-child { border-top: 0; }
   .empathy__stat + .empathy__stat { padding-left: 0; border-left: 0; }
+  .empathy__stat-num { font-size: 3.1rem; }
+  .empathy__stat-label { font-size: 1.05rem; max-width: none; margin-inline: auto; }
   .field--row { grid-template-columns: 1fr; }
   .footer__legal { flex-direction: column; }
 }
