@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=22" />
+  <link rel="stylesheet" href="styles.css?v=23" />
 </head>
 <body>
   <!-- ===================== NAV ===================== -->
@@ -202,7 +202,7 @@
             <p class="qt__hint">Quick details next, then your estimate.</p>
             <div class="field"><label for="cn">Your name</label><input type="text" id="cn" required /></div>
             <div class="field field--two">
-              <div><label for="cp">Best number</label><input type="tel" id="cp" inputmode="tel" placeholder="(555) 123-4567" pattern="\(\d{3}\) \d{3}-\d{4}" title="Format: (555) 123-4567" required /></div>
+              <div><label for="cp">Best number</label><input type="tel" id="cp" inputmode="tel" placeholder="(___) ___-____" pattern="\(\d{3}\) \d{3}-\d{4}" title="Format: (555) 123-4567" required /></div>
               <div><label for="cz">City / ZIP</label><input type="text" id="cz" required /></div>
             </div>
             <button type="submit" class="btn btn--primary btn--block" id="contactBtn">Continue</button>
@@ -487,10 +487,16 @@
             You're losing jobs three ways — calls you miss, customers who can't find you, and quotes that go
             out too slow. We recover all three. We build it, we run it, you just take the work.
           </p>
-          <p class="offer__price">
-            <span class="offer__amount">One-time build</span>
-            <span class="offer__plus">+ a small monthly for 24/7 call-catching</span>
-          </p>
+          <div class="offer__options">
+            <div class="offer__opt">
+              <span class="offer__opt-name">Site + instant quote tool</span>
+              <span class="offer__opt-price">One-time build — yours to keep, no monthly</span>
+            </div>
+            <div class="offer__opt">
+              <span class="offer__opt-name">All three — add 24/7 call-catching</span>
+              <span class="offer__opt-price">One-time build + a small monthly</span>
+            </div>
+          </div>
           <ul class="offer__features">
             <li>A fast, mobile site that gets you found — with a dedicated page for every city and service you do</li>
             <li>Your work photos labeled so they show up on Google</li>
@@ -564,9 +570,15 @@
             <label for="name">Your name</label>
             <input type="text" id="name" name="name" autocomplete="name" required />
           </div>
-          <div class="field">
-            <label for="shop">Shop name</label>
-            <input type="text" id="shop" name="shop" autocomplete="organization" required />
+          <div class="field field--row">
+            <div>
+              <label for="shop">Shop name</label>
+              <input type="text" id="shop" name="shop" autocomplete="organization" required />
+            </div>
+            <div>
+              <label for="website">Website <span class="muted">(if you have one)</span></label>
+              <input type="url" id="website" name="website" autocomplete="url" placeholder="yourshop.com" />
+            </div>
           </div>
           <div class="field field--row">
             <div>
@@ -575,12 +587,12 @@
             </div>
             <div>
               <label for="phone">Best number</label>
-              <input type="tel" id="phone" name="phone" autocomplete="tel" required />
+              <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="(___) ___-____" pattern="\(\d{3}\) \d{3}-\d{4}" title="Format: (555) 123-4567" required />
             </div>
           </div>
           <div class="field">
-            <label for="service">Your #1 money job <span class="muted">(optional)</span></label>
-            <input type="text" id="service" name="service" placeholder="e.g. frameless showers, storefront glass" />
+            <label for="service">Your #1 money job</label>
+            <input type="text" id="service" name="service" placeholder="e.g. frameless showers, storefront glass" required />
           </div>
           <button type="submit" class="btn btn--primary btn--block btn--lg">Catch the jobs I'm losing</button>
           <p class="cta__fineprint">We'll only use your number to reach out. No spam, ever.</p>

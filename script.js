@@ -77,6 +77,20 @@ if (form) {
   });
 }
 
+// ===================== Contact-form phone formatting =====================
+(function () {
+  const p = document.getElementById("phone");
+  if (!p) return;
+  p.addEventListener("input", () => {
+    const d = p.value.replace(/\D/g, "").slice(0, 10);
+    let out = d;
+    if (d.length > 6) out = "(" + d.slice(0, 3) + ") " + d.slice(3, 6) + "-" + d.slice(6);
+    else if (d.length > 3) out = "(" + d.slice(0, 3) + ") " + d.slice(3);
+    else if (d.length > 0) out = "(" + d;
+    p.value = out;
+  });
+})();
+
 // ===================== Missed-call demo (embedded phone) =====================
 (function () {
   const chat = document.getElementById("chat");
