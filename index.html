@@ -666,18 +666,26 @@
       if (!title) return;
       var lines = title.querySelectorAll(".hero__line");
       if (!lines.length) return;
+      var container = title.closest(".container") || title.parentElement;
       function fit() {
-        if (window.innerWidth > 900) { title.style.fontSize = ""; return; }
-        var probe = 40;
+        title.style.fontSize = "";
+        if (window.innerWidth > 900) return;
+        /* available width comes from the container, which is viewport-bound and
+           does NOT grow with the headline text — avoids a runaway feedback loop */
+        var cs = getComputedStyle(container);
+        var avail = container.clientWidth
+          - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+        if (avail <= 0) return;
+        var probe = 100;
         title.style.fontSize = probe + "px";
-        var avail = title.clientWidth;
         var widest = 0, i;
         for (i = 0; i < lines.length; i++) {
           if (lines[i].scrollWidth > widest) widest = lines[i].scrollWidth;
         }
-        if (!avail || !widest) { title.style.fontSize = ""; return; }
-        var size = probe * (avail / widest) * 0.97; /* 3% safety margin */
-        size = Math.max(16, Math.min(size, 34));
+        title.style.fontSize = "";
+        if (!widest) return;
+        var size = probe * (avail / widest) * 0.96; /* 4% safety margin */
+        size = Math.max(16, Math.min(size, 30));
         title.style.fontSize = size + "px";
       }
       fit();
