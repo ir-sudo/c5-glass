@@ -186,8 +186,8 @@
         </div>
         <div class="qt__steps" id="qtSteps">
           <span data-step="service">1&nbsp;Service</span>
-          <span data-step="details">2&nbsp;Details</span>
-          <span data-step="contact">3&nbsp;Contact</span>
+          <span data-step="contact">2&nbsp;Contact</span>
+          <span data-step="details">3&nbsp;Details</span>
         </div>
         <div class="qt" id="qt">
           <div class="qt__screen is-active" id="s-pick">
@@ -195,33 +195,34 @@
             <div class="qt__jobs" id="jobs"></div>
           </div>
 
-          <form class="qt__screen" id="s-details">
-            <button type="button" class="qt__back" data-to="s-pick">← Change service</button>
-            <h3 class="qt__q" id="detailsTitle"></h3>
-            <div class="qt__fields" id="detailFields"></div>
-            <button type="submit" class="btn btn--primary btn--block">Continue</button>
-          </form>
-
           <form class="qt__screen" id="s-contact">
-            <button type="button" class="qt__back" data-to="s-details">← Back</button>
-            <div class="qt__estimate" id="estimateBox" hidden>
-              <small>Your ballpark estimate</small>
-              <div class="qt__range" id="range">$—</div>
-              <p>An estimate, not a final price — we'll confirm exactly after a free measurement.</p>
-            </div>
-            <h3 class="qt__q">Where should we send it?</h3>
+            <button type="button" class="qt__back" data-to="s-pick">← Change service</button>
+            <h3 class="qt__q">First — where should we send your quote?</h3>
+            <p class="qt__hint">Quick details next, then your estimate.</p>
             <div class="field"><label for="cn">Your name</label><input type="text" id="cn" required /></div>
             <div class="field field--two">
               <div><label for="cp">Best number</label><input type="tel" id="cp" inputmode="tel" placeholder="(555) 123-4567" pattern="\(\d{3}\) \d{3}-\d{4}" title="Format: (555) 123-4567" required /></div>
               <div><label for="cz">City / ZIP</label><input type="text" id="cz" required /></div>
             </div>
-            <button type="submit" class="btn btn--primary btn--block" id="contactBtn">See my estimate</button>
+            <button type="submit" class="btn btn--primary btn--block" id="contactBtn">Continue</button>
+          </form>
+
+          <form class="qt__screen" id="s-details">
+            <button type="button" class="qt__back" data-to="s-contact">← Back</button>
+            <h3 class="qt__q" id="detailsTitle"></h3>
+            <div class="qt__fields" id="detailFields"></div>
+            <button type="submit" class="btn btn--primary btn--block" id="detailsBtn">See my estimate</button>
           </form>
 
           <div class="qt__screen" id="s-done">
             <div class="qt__done">
               <div class="check">✓</div>
               <h3 id="doneTitle">Got it!</h3>
+              <div class="qt__estimate" id="estimateBox" hidden>
+                <small>Your ballpark estimate</small>
+                <div class="qt__range" id="range">$—</div>
+                <p>An estimate, not a final price — we'll confirm exactly after a free measurement.</p>
+              </div>
               <p id="doneMsg"></p>
               <button type="button" class="qt__back" data-to="s-pick">← Start over</button>
             </div>
@@ -657,7 +658,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
   <script>
     /* Hero headline: on mobile, size each sentence as large as it can go while
        staying on a single line — measured per device so it never overflows. */

@@ -683,7 +683,9 @@ button { font: inherit; cursor: pointer; }
 .qt__estimate small { display: block; color: var(--text-mute); font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; }
 .qt__range { font-family: var(--ff-display); font-weight: 400; font-size: 2.2rem; color: var(--text-emph); letter-spacing: -0.02em; margin: 6px 0; }
 .qt__estimate p { color: var(--text-soft); font-size: 0.88rem; }
+.qt__hint { color: var(--text-mute); font-size: 0.86rem; margin: -4px 0 18px; }
 .qt__done { text-align: center; padding: 12px 0; }
+.qt__done .qt__estimate { margin-top: 16px; }
 .qt__done .check { width: 50px; height: 50px; margin: 0 auto 14px; border-radius: 50%; background: rgba(52,199,89,0.16); border: 1px solid rgba(52,199,89,0.4); display: grid; place-items: center; color: #34c759; font-size: 1.4rem; font-weight: 700; }
 .qt__done h3 { font-family: var(--ff-display); font-weight: 400; font-size: 1.4rem; color: var(--text-emph); }
 .qt__done p { color: var(--text-soft); margin-top: 10px; }

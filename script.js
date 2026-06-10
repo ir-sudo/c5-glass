@@ -115,7 +115,7 @@ if (form) {
   if (!grid) return;
   const byId = (id) => document.getElementById(id);
   const screens = document.querySelectorAll(".qt__screen");
-  const stepFor = { "s-pick": "service", "s-details": "details", "s-contact": "contact", "s-done": "contact" };
+  const stepFor = { "s-pick": "service", "s-contact": "contact", "s-details": "details", "s-done": "details" };
   const show = (id) => {
     screens.forEach((s) => s.classList.toggle("is-active", s.id === id));
     const cur = stepFor[id];
@@ -189,13 +189,15 @@ if (form) {
     b.type = "button";
     b.className = "qt__job";
     b.innerHTML = '<span class="qt__job-name">' + svc.label + '</span><span class="qt__job-tag' + (svc.mode === "callback" ? " is-cb" : "") + '">' + (svc.mode === "instant" ? "Instant estimate" : "Fast callback") + "</span>";
-    b.addEventListener("click", () => openDetails(svc));
+    b.addEventListener("click", () => selectService(svc));
     grid.appendChild(b);
   });
 
-  function openDetails(svc) {
+  // pick a service → build its detail fields, then collect contact first
+  function selectService(svc) {
     current = svc;
     byId("detailsTitle").textContent = svc.label;
+    byId("detailsBtn").textContent = svc.mode === "instant" ? "See my estimate" : "Request my callback";
     const wrap = byId("detailFields");
     wrap.innerHTML = "";
     svc.fields.forEach((f) => {
@@ -209,7 +211,7 @@ if (form) {
       cell.innerHTML = inner;
       wrap.appendChild(cell);
     });
-    show("s-details");
+    show("s-contact");
   }
 
   // format phone input as (xxx) xxx-xxxx while typing
@@ -226,35 +228,31 @@ if (form) {
     });
   })();
 
-  // details → contact (compute ballpark for instant services)
+  // contact → details (capture the lead before any estimate is shown)
+  byId("s-contact").addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!current) return;
+    show("s-details");
+  });
+
+  // details → done (now that contact is captured, reveal the estimate)
   byId("s-details").addEventListener("submit", (e) => {
     e.preventDefault();
     if (!current) return;
     const v = {};
     current.fields.forEach((f) => { const el = byId("f_" + f.k); v[f.k] = f.type === "number" ? +el.value || 0 : el.value; });
+    const name = byId("cn").value;
+    const phone = byId("cp").value;
     if (current.mode === "instant") {
       const n = current.price(v);
       lastRange = "$" + r10(n * 0.9) + "–$" + r10(n * 1.2);
       byId("range").textContent = lastRange;
       byId("estimateBox").hidden = false;
-      byId("contactBtn").textContent = "Get my estimate";
+      byId("doneTitle").textContent = "You're all set, " + name + "!";
+      byId("doneMsg").textContent = "We'll confirm the exact price after a free measurement and text it to " + phone + ".";
     } else {
       lastRange = "";
       byId("estimateBox").hidden = true;
-      byId("contactBtn").textContent = "Request my callback";
-    }
-    show("s-contact");
-  });
-
-  // contact → done (confirm with the value)
-  byId("s-contact").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const name = byId("cn").value;
-    const phone = byId("cp").value;
-    if (current && current.mode === "instant") {
-      byId("doneTitle").textContent = "You're all set, " + name + "!";
-      byId("doneMsg").textContent = "Your ballpark is " + lastRange + ". We'll confirm the exact price after a free measurement and text it to " + phone + ".";
-    } else {
       byId("doneTitle").textContent = "Request sent, " + name + "!";
       byId("doneMsg").textContent = "We've got your details — we'll call you back fast at " + phone + ".";
     }
