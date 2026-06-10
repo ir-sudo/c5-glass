@@ -662,6 +662,7 @@ button { font: inherit; cursor: pointer; }
 .qt { margin: 28px auto 0; max-width: 700px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: clamp(22px, 4vw, 32px); text-align: left; }
 .qt__step { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-primary); font-weight: 600; }
 .qt__q { font-family: var(--ff-display); font-weight: 400; font-size: 1.4rem; color: var(--text-emph); margin: 8px 0 20px; line-height: 1.2; }
+.qt__hint { color: var(--text-mute); font-size: 0.86rem; margin: -4px 0 18px; }
 .qt__screen { display: none; }
 .qt__screen.is-active { display: block; animation: fade 0.25s ease; }
 @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
