@@ -767,7 +767,7 @@ button { font: inherit; cursor: pointer; }
 #s-details .qt__back, #s-contact .qt__back { margin: 0 0 14px; display: inline-block; }
 @media (max-width: 520px) { .qt__fields { grid-template-columns: 1fr; } }
 
-/* the demo represents a DIFFERENT brand's site — distinct palette so it reads as "not C5" */
+/* the demo represents a standalone brand's site — distinct palette */
 .browser {
   --primary: #a9d6df;
   --primary-hover: #c0e4ec;
